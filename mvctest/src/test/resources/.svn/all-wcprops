@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/repos/edu.3443949.mvctest/!svn/ver/2/mvctest/src/test/resources
+END
+log4j.xml
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/repos/edu.3443949.mvctest/!svn/ver/2/mvctest/src/test/resources/log4j.xml
+END
+email1.eml
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/repos/edu.3443949.mvctest/!svn/ver/2/mvctest/src/test/resources/email1.eml
+END
+email2.eml
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/repos/edu.3443949.mvctest/!svn/ver/2/mvctest/src/test/resources/email2.eml
+END
+email3.eml
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/repos/edu.3443949.mvctest/!svn/ver/2/mvctest/src/test/resources/email3.eml
+END

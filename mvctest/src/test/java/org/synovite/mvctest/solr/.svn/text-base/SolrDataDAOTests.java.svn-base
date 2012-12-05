@@ -1,0 +1,112 @@
+package org.synovite.mvctest.solr;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+import org.synovite.mvctest.model.Email;
+import org.synovite.mvctest.model.SearchBean;
+
+public class SolrDataDAOTests {
+
+    private static SolrDataDAO solrDataDAO;
+    List<Email> emailsToAdd = new ArrayList<Email>();
+    
+    List<SearchBean> beansToSearch = new ArrayList<SearchBean>();
+    String getAllQuery = "";//get by bean new SearchBean()
+   
+    @BeforeClass
+    public static void before(){
+	solrDataDAO = new SolrDataDAO();
+    }
+    
+    @Before
+    public void setUp() throws Exception{
+	//clear the index
+	solrDataDAO.deleteDataById("*");
+	
+	List<String> recipients = new ArrayList<String>();
+	recipients.add("mihaiborcan@gmail.com");
+	//dates are 2012-12-01, 2011-12-01 and 2001-12-01 respectively
+	emailsToAdd.add(new Email("0", "mihaiborcan@msn.com", recipients, new Date(1354316400000L), "Subject1", "Content1"));
+	emailsToAdd.add(new Email("1", "mihaiborcan@msn.com", recipients, new Date(1322694000000L), "Subject1", "Content2"));
+	emailsToAdd.add(new Email("2", "mihaiborcan@hotmail.com", recipients, new Date(1007161200000L), "Re:Subject1", "Content3"));;
+	
+	//first case of searching, we should have two matches
+	SearchBean beanToSearch = new SearchBean();
+	
+	beanToSearch.setSender("mihaiborcan@msn.com");
+	beanToSearch.setDate(new Date(1291158000000L));//emails sent after 2010-12-01
+	beanToSearch.setRecipient("");
+	beanToSearch.setSubject("Subject1");
+	beanToSearch.setTextContent("");
+	beansToSearch.add(beanToSearch);
+	
+	//second case of searching, we should have one match
+	SearchBean beanToSearch2 = new SearchBean();
+	beanToSearch2.setSender("");
+	beanToSearch2.setRecipient("");
+	beanToSearch2.setSubject("Re:Subject1");
+	beanToSearch2.setTextContent("");
+	beansToSearch.add(beanToSearch2);
+	
+	//third case of searching, we should have zero matches
+	SearchBean beanToSearch3 = new SearchBean();
+//	beanToSearch3.setSubject("Re:Subject1");
+	beanToSearch3.setSender("mihaiborcan@hotmail.com");
+	beanToSearch3.setDate(new Date(1291158000000L));//emails sent after 2010-12-01
+	beanToSearch3.setRecipient("");
+	beanToSearch3.setSubject("");
+	beanToSearch3.setTextContent("");
+	beansToSearch.add(beanToSearch3);
+    }
+    
+    @Test
+    public void testAddEmails() {
+	assertTrue(solrDataDAO.addEmails(emailsToAdd));
+	List<SearchBean> allResults = solrDataDAO.queryBySearchBean(new SearchBean());
+	assertEquals(allResults.size(), emailsToAdd.size());
+    }
+    
+    @Test
+    public void testQueryBySearchBean() {
+	solrDataDAO.addEmails(emailsToAdd);
+	List<SearchBean> firstResult = solrDataDAO.queryBySearchBean(beansToSearch.get(0));
+	List<SearchBean> secondResult = solrDataDAO.queryBySearchBean(beansToSearch.get(1));
+	List<SearchBean> thirdResult = solrDataDAO.queryBySearchBean(beansToSearch.get(2));
+	assertEquals(firstResult.size(), 2);
+	assertEquals(secondResult.size(), 1);
+	assertEquals(thirdResult.size(), 0);
+    }
+
+    @Test
+    public void testGetQueryFromSearchBean() {
+	
+	String firstQuery = solrDataDAO.getQueryFromSearchBean(beansToSearch.get(0));
+	String expectedFirstQuery = "type_t:email AND sender_t:\"mihaiborcan@msn.com\" AND " +
+			"date_dt:[2010-12-01T00:00:00Z TO NOW] AND subject_t:\"Subject1\"";
+	assertTrue(expectedFirstQuery.equals(firstQuery));
+	
+	String secondQuery = solrDataDAO.getQueryFromSearchBean(beansToSearch.get(1));
+	String expectedSecondQuery = "type_t:email AND subject_t:\"Re:Subject1\"";
+	assertTrue(expectedSecondQuery.equals(secondQuery));
+	
+	String thirdQuery = solrDataDAO.getQueryFromSearchBean(beansToSearch.get(2));
+	String expectedThirdQuery = "type_t:email AND sender_t:\"mihaiborcan@hotmail.com\" " +
+			"AND date_dt:[2010-12-01T00:00:00Z TO NOW]";
+	assertTrue(expectedThirdQuery.equals(thirdQuery));
+//	fail("Not yet implemented");
+    }
+    
+    @AfterClass
+    public static void after(){
+	solrDataDAO = new SolrDataDAO();
+    }
+}

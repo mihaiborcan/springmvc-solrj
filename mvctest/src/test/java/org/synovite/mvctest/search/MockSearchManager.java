@@ -1,0 +1,36 @@
+package org.synovite.mvctest.search;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.synovite.mvctest.model.SearchBean;
+import org.synovite.mvctest.solr.SolrDataDAO;
+
+public class MockSearchManager implements SearchManager {
+
+    SolrDataDAO solrDataDAO;
+    
+    
+    public MockSearchManager() {
+	this.solrDataDAO = new SolrDataDAO();
+    }
+
+    @Override
+    public List<SearchBean> searchForBean(SearchBean searchBean) {
+	// TODO Auto-generated method stub
+	return new ArrayList<SearchBean>();
+    }
+
+    @Override
+    public String getQuery(SearchBean searchBean) {
+	// TODO Auto-generated method stub
+	return solrDataDAO.getQueryFromSearchBean(searchBean);
+    }
+
+    @Override
+    public SearchBean trimSearch(SearchBean searchBean) {
+	// TODO Auto-generated method stub
+	return null;
+    }
+
+}

@@ -1,0 +1,19 @@
+package org.synovite.mvctest.filehandler;
+
+import java.io.File;
+import java.util.List;
+
+import org.springframework.web.multipart.MultipartFile;
+
+
+public interface FileHandler<T> {
+    
+    public List<T> getDocumentsFromMultipart(List<MultipartFile> multipartFiles);
+    
+    public T getDocumentFromMultipart(MultipartFile multipartFile);
+    
+    public List<T> getDocumentsFromFile(List<File> files);
+    
+    public T getDocumentFromFile(File file);
+
+}

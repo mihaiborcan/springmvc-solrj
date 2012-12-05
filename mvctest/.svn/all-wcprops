@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/repos/edu.3443949.mvctest/!svn/ver/1/mvctest
+END
+pom.xml
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/repos/edu.3443949.mvctest/!svn/ver/3/mvctest/pom.xml
+END
+.springBeans
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/repos/edu.3443949.mvctest/!svn/ver/2/mvctest/.springBeans
+END
+.project
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/repos/edu.3443949.mvctest/!svn/ver/2/mvctest/.project
+END
+.classpath
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/repos/edu.3443949.mvctest/!svn/ver/2/mvctest/.classpath
+END

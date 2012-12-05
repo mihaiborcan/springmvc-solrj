@@ -1,0 +1,20 @@
+Return-Path: <t.salfischberger@synovite.nl>
+Received: from [192.168.1.163] (095-097-039-162.static.chello.nl. [95.97.39.162])
+        by mx.google.com with ESMTPS id s16sm29200345eef.2.2012.01.27.05.13.57
+        (version=TLSv1/SSLv3 cipher=OTHER);
+        Fri, 27 Jan 2012 05:13:57 -0800 (PST)
+Message-ID: <4F22A313.7090407@synovite.nl>
+Date: Fri, 27 Jan 2012 14:13:55 +0100
+From: Tomas Salfischberger <t.salfischberger@synovite.nl>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:8.0) Gecko/20111124 Thunderbird/8.0
+MIME-Version: 1.0
+To: Koen Koppens <koen@netsociety.nl>
+Subject: Another example email
+Content-Type: text/plain; charset=ISO-8859-1; format=flowed
+Content-Transfer-Encoding: 7bit
+
+Hi Koen,
+
+This is our third test-message for the email-indexing assignment.
+
+Tomas

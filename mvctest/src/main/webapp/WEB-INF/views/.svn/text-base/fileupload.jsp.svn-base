@@ -1,0 +1,58 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<c:if test="${!ajaxRequest}">
+	<html>
+<head>
+<title>File upload</title>
+<link href="<c:url value="/resources/form.css" />" rel="stylesheet"
+	type="text/css" />
+<script type="text/javascript"
+	src="<c:url value="/resources/jquery/1.6/jquery.js" />"></script>
+<script type="text/javascript"
+	src="<c:url value="/resources/jqueryform/2.8/jquery.form.js" />"></script>
+</head>
+<body>
+</c:if>
+<div id="fileuploadContent">
+	<h2>Upload files</h2>
+	<form id="fileuploadForm" action="fileupload" method="POST"
+		enctype="multipart/form-data" class="cleanform">
+		<div class="header">
+			<h2>Select files from disk</h2>
+			<c:if test="${not empty fileNames}">
+				<div id="message" class="success">
+					${message}
+					<ul>
+						<c:forEach var="fileName" items="${fileNames}">
+							<li> ${fileName} </li>
+						</c:forEach>
+					</ul>
+
+				</div>
+			</c:if>
+			<c:if test="${not empty error}">
+				<div id="message" class="error">${error}</div>
+			</c:if>
+		</div>
+		<label for="files">File</label> <input id="files" type="file"
+			name="files" multiple="multiple" size="30" />
+		<p>
+			<button type="submit">Upload</button>
+		</p>
+	</form>
+	<script type="text/javascript">
+		$(document).ready(
+				function() {
+					$('<input type="hidden" name="ajaxUpload" value="true" />')
+							.insertAfter($("#file"));
+					$("#fileuploadForm").ajaxForm({
+						success : function(html) {
+							$("#fileuploadContent").replaceWith(html);
+						}
+					});
+				});
+	</script>
+</div>
+<c:if test="${!ajaxRequest}">
+	</body>
+	</html>
+</c:if>

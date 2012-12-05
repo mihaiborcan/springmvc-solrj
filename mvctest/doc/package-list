@@ -1,0 +1,7 @@
+org.synovite.mvctest.filehandler
+org.synovite.mvctest.fileupload
+org.synovite.mvctest.model
+org.synovite.mvctest.search
+org.synovite.mvctest.solr
+org.synovite.mvctest.testsuite
+org.synovite.mvctest.utils

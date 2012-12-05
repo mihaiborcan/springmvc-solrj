@@ -1,0 +1,59 @@
+                                                                                                                                                                                                                                                               
+Delivered-To: mihaiborcan@gmail.com
+Received: by 10.66.76.4 with SMTP id g4csp85053paw;
+        Sun, 2 Dec 2012 16:12:07 -0800 (PST)
+Received: by 10.50.77.230 with SMTP id v6mr4577580igw.11.1354493526625;
+        Sun, 02 Dec 2012 16:12:06 -0800 (PST)
+Return-Path: <mihaiborcan@yahoo.com>
+Received: from nm35-vm3.bullet.mail.ne1.yahoo.com (nm35-vm3.bullet.mail.ne1.yahoo.com. [98.138.229.99])
+        by mx.google.com with ESMTPS id gv10si6281526igb.10.2012.12.02.16.12.06
+        (version=TLSv1/SSLv3 cipher=OTHER);
+        Sun, 02 Dec 2012 16:12:06 -0800 (PST)
+Received-SPF: pass (google.com: best guess record for domain of mihaiborcan@yahoo.com designates 98.138.229.99 as permitted sender) client-ip=98.138.229.99;
+Authentication-Results: mx.google.com; spf=pass (google.com: best guess record for domain of mihaiborcan@yahoo.com designates 98.138.229.99 as permitted sender) smtp.mail=mihaiborcan@yahoo.com; dkim=pass header.i=@yahoo.com
+Received: from [98.138.90.52] by nm35.bullet.mail.ne1.yahoo.com with NNFMP; 03 Dec 2012 00:12:06 -0000
+Received: from [98.138.226.162] by tm5.bullet.mail.ne1.yahoo.com with NNFMP; 03 Dec 2012 00:12:05 -0000
+Received: from [127.0.0.1] by omp1063.mail.ne1.yahoo.com with NNFMP; 03 Dec 2012 00:12:05 -0000
+X-Yahoo-Newman-Property: ymail-3
+X-Yahoo-Newman-Id: 854438.98652.bm@omp1063.mail.ne1.yahoo.com
+Received: (qmail 77220 invoked by uid 60001); 3 Dec 2012 00:12:05 -0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s1024; t=1354493525; bh=riRdQWNUUaedYVwRW4XAG6xLZMLnvPZZ4wlqNUxZhuw=; h=X-YMail-OSG:Received:X-Rocket-MIMEInfo:X-Mailer:Message-ID:Date:From:Reply-To:Subject:To:MIME-Version:Content-Type; b=G1D79vV2FIjCwjytxYgREvTaao5MYeyBKx1lUdUEHOTm0dSX/HnV02mvHN6yvQ++t/oHFNTBvdf8zWM8GX1o49/jet/FQpM4is3uX5MUSXG8cX7x7DYAxzA51Is/AmAuUq6JrSf1irTbwqhgwR2mpAu/pS8EOAWhW7/dv61VZ+4=
+DomainKey-Signature:a=rsa-sha1; q=dns; c=nofws;
+  s=s1024; d=yahoo.com;
+  h=X-YMail-OSG:Received:X-Rocket-MIMEInfo:X-Mailer:Message-ID:Date:From:Reply-To:Subject:To:MIME-Version:Content-Type;
+  b=kSKcmauy4DYNKZ855eHbB6Pt75Oz50BFWvE8iKzlm6oERZRtGX0hCfUfPgQVAUQLrxFk9mBzrskwxojfmSl7HsQqN6R7l8gQM/3K9LBE6VJ8+ieIHmseQbAgoZPss+lzuiPD+K1rjhcz8wcV4kebmm+wCnLzW/2IgqL0oJJuqrg=;
+X-YMail-OSG: dO25PZgVM1kMZStwT.z6qPhDDfBeNzLK6HlbvZHG.av_ORQ
+ 0t.68GC8UbX.o35kyriTF530r438SW1aRjBQxiIm7w7gsf_rGlDAs.t1nxa3
+ qboSx4SEfCXErN6QiDJKjlR8UD4y5B8ImZE_DX4wuRuhVzNe2x1RWw.idyAk
+ BDylSHNRC_xGZJIwEYjZVXGwa99A8SSqFZQjK.XmQDnJyy2l2isCbKO6nZ.6
+ Jv2fC3uakvXnQLX7pWyMBLyjoBG6TZ9HAti5a_Y1FNlXCdQvbnE8x6BPEgG7
+ tIfnl3IG.eTOZfJgZck3kNUBom0CxkonQGCAUi2uFusgkn.gImPtrf4kP13z
+ UJBLxPvghpwAytTGt5lP0Yr9juLTPmzWJN3Mzfhmcyl1a6wJfxQovoFFeSWx
+ bPUqYujvXxGQbcKRPGGCkjkV7hmQnhyQvomyQ2NGznRy.YEbdqlTvRQBKGKo
+ PDLS8c40a.KeBdO4oyeCXyYPorOo.UBYBdbrlAIldEddTm4oZ7Q--
+Received: from [83.83.61.116] by web122606.mail.ne1.yahoo.com via HTTP; Sun, 02 Dec 2012 16:12:05 PST
+X-Rocket-MIMEInfo: 001.001,VGhpcyBpcyB0aGUgZmlyc3QgY29udGVudC4KCsKgCk1paGFpIEJvcmNhbgoBMAEBAQE-
+X-Mailer: YahooMailWebService/0.8.128.478
+Message-ID: <1354493525.66033.YahooMailNeo@web122606.mail.ne1.yahoo.com>
+Date: Sun, 2 Dec 2012 16:12:05 -0800 (PST)
+From: Mihai Borcan <mihaiborcan@yahoo.com>
+Reply-To: Mihai Borcan <mihaiborcan@yahoo.com>
+Subject: Test subject 1
+To: "mihaiborcan@gmail.com" <mihaiborcan@gmail.com>
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="2094167247-973459491-1354493525=:66033"
+
+--2094167247-973459491-1354493525=:66033
+Content-Type: text/plain; charset=iso-8859-1
+Content-Transfer-Encoding: quoted-printable
+
+This is the first content.=0A=0A=A0=0AMihai Borcan=0A
+--2094167247-973459491-1354493525=:66033
+Content-Type: text/html; charset=iso-8859-1
+Content-Transfer-Encoding: quoted-printable
+
+<html><body><div style=3D"color:#000; background-color:#fff; font-family:bo=
+okman old style, new york, times, serif;font-size:12pt"><div><span>This is =
+the first content.<br></span></div><div>&nbsp;</div><div>Mihai Borcan<br></=
+div></div></body></html>
+--2094167247-973459491-1354493525=:66033--

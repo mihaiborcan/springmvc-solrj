@@ -1,0 +1,25 @@
+Delivered-To: t.salfischberger@synovite.nl
+Received: by 10.224.200.66 with SMTP id ev2csp5138qab;
+        Thu, 26 Jan 2012 07:55:25 -0800 (PST)
+Received: by 10.14.11.67 with SMTP id 43mr982778eew.17.1327593325127;
+        Thu, 26 Jan 2012 07:55:25 -0800 (PST)
+Return-Path: <example@synovite.nl>
+Received: from eu1sys200aog109.obsmtp.com (eu1sys200aog109.obsmtp.com. [207.126.144.127])
+        by mx.google.com with SMTP id 56si3065374ees.209.2012.01.26.07.55.24;
+        Thu, 26 Jan 2012 07:55:25 -0800 (PST)
+From: "Example User" <example@synovite.nl>
+MIME-Version: 1.0
+To: "Tomas Salfischberger" <t.salfischberger@synovite.nl>
+Date: Thu, 26 Jan 2012 15:54:01 +0000
+Subject: Example message
+Message-ID: <54718DFF0B21FB47BD155F7366D32FD711B2F01C4E@drl-ex-01>
+Content-Type: text/plain; charset=ISO-8859-1; format=flowed
+Content-Transfer-Encoding: 7bit
+
+Hi,
+
+This is an example message for the search-engine assignment.
+
+Best regards,
+
+Example User

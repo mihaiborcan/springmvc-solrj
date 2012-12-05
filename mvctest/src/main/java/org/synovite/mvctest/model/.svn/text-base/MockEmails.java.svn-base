@@ -1,0 +1,49 @@
+package org.synovite.mvctest.model;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+
+
+public class MockEmails {
+    
+    public static Email getMockEmail(){
+	String id = "<54718DFF0B21FB47BD155F7366D32FD711B2F01C4E@drl-ex-01>";
+	String sender = "Example User <example@synovite.nl>";
+	List<String> recipients = new ArrayList<String>();
+	recipients.add("Tomas Salfischberger <t.salfischberger@synovite.nl>");
+	recipients.add("Tomas Salfischberger <t.salfischberger@synovite.nl>");
+	Date date = new Date();
+	String subject = "Example message";
+	String textContent = "Hi,\n"+
+		"This is an example message for the search-engine assignment.\n"+
+		"Best regards,\n"+
+		"Example User";
+	Email email = new Email(id, sender, recipients, date, subject, textContent);
+	return email;
+    }
+    
+    public static List<Email> getMockEmails(){
+	List<Email> emails = new ArrayList<Email>();
+	List<String> recipients = new ArrayList<String>();
+	recipients.add("Tomas Salfischberger <t.salfischberger@synovite.nl>");
+//	recipients.add("Tomas <t.salfischberger2@synovite.nl>");
+	String content = "Hi,"+
+			"This is an example message for the search-engine assignment."+
+			"Best regards,"+
+			"Example User";
+	emails.add(new Email("email", "<example@synovite.nl>", recipients, null, "Example message", content));
+//	emails.add(new Email("<4F22A313.7090407@synovite.nl>", "mihaiborcan@yahoo.com", recipients, new Date(), "This is another subject", "text which is longer"));
+//	emails.add(new Email("<4F22A313.7090407@synovite.nl>", "mihaiborcan@gmail.com", recipients, new Date(), "Final subject", "text with weird characters: !@#!%$^%$^"));
+	
+	return emails;
+    }
+    
+//    public static List<MockObject> getMockObjects(){
+//	List<MockObject> objects = new ArrayList<MockObject>();
+//	objects.add(new MockObject("id1"));
+//	return objects;
+//    }
+
+}

@@ -1,0 +1,72 @@
+package org.synovite.mvctest.search;
+
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
+
+import java.util.Calendar;
+import java.util.Date;
+
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+import org.springframework.ui.ExtendedModelMap;
+import org.springframework.validation.BeanPropertyBindingResult;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.servlet.mvc.support.RedirectAttributesModelMap;
+import org.synovite.mvctest.model.SearchBean;
+import org.synovite.mvctest.solr.SolrDataDAO;
+
+public class SearchControllerTests {
+
+    private SearchBean beanToSearch;
+    private SearchBean invalidBeanToSearch;
+    private SearchController searchController;
+    private static SimpleSearchManager searchManager;
+    
+    @BeforeClass
+    public static void before(){
+	searchManager = new SimpleSearchManager();
+	searchManager.setSolrDataDAO(new SolrDataDAO());
+    }
+    
+    @Before
+    public void setUp() throws Exception {
+	
+	searchController = new SearchController(searchManager);
+	
+	beanToSearch = new SearchBean();
+	beanToSearch.setSender("mihaiborcan@msn.com");
+	beanToSearch.setDate(new Date(1291158000000L));//emails sent after 2010-12-01
+	beanToSearch.setRecipient("");
+	beanToSearch.setSubject("Subject1");
+	beanToSearch.setTextContent("");
+	
+	invalidBeanToSearch = new SearchBean();
+	Calendar cal = Calendar.getInstance();
+	cal.set(1999, 12, 12);
+	invalidBeanToSearch.setDate(cal.getTime());
+    }
+    
+    @Test
+    public void testProcessSubmit() {
+	ExtendedModelMap model = new ExtendedModelMap();
+	BindingResult bindingResult = new BeanPropertyBindingResult(beanToSearch, "searchBean");
+	RedirectAttributes attrs = new RedirectAttributesModelMap();
+	String output = searchController.processSubmit(beanToSearch, bindingResult, model, true, attrs);
+	assertNull(output);
+	String expectedQuery = "Submitted query is: <br/>type_t:email AND sender_t:\"mihaiborcan@msn.com\" " +
+			"AND date_dt:[2010-12-01T00:00:00Z TO NOW] AND subject_t:\"Subject1\"";
+	assertTrue(expectedQuery.equals(model.get("message")));
+    }
+    
+    @Test
+    public void testProcessSubmitNoAjax() {
+	ExtendedModelMap model = new ExtendedModelMap();
+	BindingResult bindingResult = new BeanPropertyBindingResult(beanToSearch, "searchBean");
+	RedirectAttributes attrs = new RedirectAttributesModelMap();
+	String output = searchController.processSubmit(beanToSearch, bindingResult, model, false, attrs);
+	assertTrue("redirect:/search".equals(output));
+    }
+
+}
